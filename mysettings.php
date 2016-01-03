@@ -16,7 +16,7 @@ $rs_pwd = mysql_query("select password from user where email='$_SESSION[email]'"
 list($old) = mysql_fetch_row($rs_pwd);
 //$old_salt = substr($old);
 
-//check for old password in md5 format
+//it checks for old password in md5 format
 	if($old === PwdHash($_POST['pwd_old']))
 	{
 	$newsha1 = PwdHash($_POST['pwd_new']);

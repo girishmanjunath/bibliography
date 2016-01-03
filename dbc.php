@@ -10,17 +10,17 @@ error_reporting( 0 );
 Note: If you use cpanel, the name will be like account_database
 *************************************************************/
 
-define ("DB_HOST", "us-cdbr-azure-west-c.cloudapp.net"); // set database host
-define ("DB_USER", "bc4a22ca3859ef"); // set database user
-define ("DB_PASS","eccb17ee"); // set database password
-define ("DB_NAME","acsm_aea6bacab97d26e"); // set database name
+define ("DB_HOST", "us-cdbr-azure-west-c.cloudapp.net"); // give database host name
+define ("DB_USER", "bc4a22ca3859ef"); // give database user name
+define ("DB_PASS","eccb17ee"); // Give database password name
+define ("DB_NAME","acsm_aea6bacab97d26e"); // Give database name
 
 $link = mysql_connect(DB_HOST, DB_USER, DB_PASS) or die("Couldn't make connection.");
 $db = mysql_select_db(DB_NAME, $link) or die("Couldn't select database");
 
 /* Registration Type (Automatic or Manual) 
- 1 -> Automatic Registration (Users will receive activation code and they will be automatically approved after clicking activation link)
- 0 -> Manual Approval (Users will not receive activation code and you will need to approve every user manually)
+ 1 -> Users will receive activation code and they will be automatically approved after clicking activation link
+ 0 -> Users will not receive activation code and you will need to approve every user manually
 */
 /**** PAGE PROTECT CODE  ********************************
 This code protects pages to only logged in users. If users have not logged in then it will redirect to login page.

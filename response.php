@@ -5,7 +5,7 @@ page_protect();
 $user_email=$_SESSION['email'];
 if(isset($_POST["action"])){
 
-/** CREATE NEW LIBRARY  Code start**/
+/** CREATE NEW LIBRARY  Start from here **/
 	if($_POST["action"]=="createlib"){
 		$libname=$_POST["libname"];
 
@@ -21,14 +21,14 @@ if(isset($_POST["action"])){
 		  echo "Library Created, Library ID:".mysql_insert_id();
 		exit();
 	}
-/** CREATE NEW LIBRARY  Code END**/
+/** CREATE NEW LIBRARY END here**/
 
-/** Load LIBRARY  Code start**/	
+/** Load LIBRARY  Code start from here **/	
 	if($_POST["action"]=="loadlib"){
 		$result = mysql_query("SELECT `Library` . * FROM `Library` WHERE `OwnerEmail` = '$user_email' OR `ID` IN ( SELECT ID FROM SharedLibrary WHERE `ShareEmail` = '$user_email')"); 
 $num = mysql_num_rows($result);
 
-		// Match row found with more than 1 results  - the user is authenticated. 
+		 
 		if ( $num > 0 ) {
 			$result_out='';
 			while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
@@ -39,10 +39,10 @@ $num = mysql_num_rows($result);
 		else {$result_out="<option>No Library on Your name</option>";}
 		echo $result_out;
 	}
-/** Load LIBRARY  Code END**/	
+/** Load LIBRARY  Code END here**/	
 
 
-/** Add reference  Code start**/
+/** Add reference  Code start from here**/
 if($_POST["action"]=="addreference"){
 		$libid=$_POST["libid"];
 	    $add_author=$_POST["add_author"];
@@ -64,10 +64,10 @@ if($_POST["action"]=="addreference"){
 		  echo "Reference Added, Reference ID:".mysql_insert_id();
 		exit();
 	}
-/** Add reference  Code End**/
+/** Add reference  Code End here**/
 
 
-/** Share Library  Code Start **/	
+/** Share Library  Code Start from here**/	
 if($_POST["action"]=="sharelib"){
 $toshare=$_POST["emailtoshare"];
 $sharelibid=$_POST["libshareid"];
@@ -98,6 +98,6 @@ echo "library is already Shared with this email"; exit(0);
 		}
 }
 
-/** Share Library  Code End**/	
+/** Share Library  Code End here**/	
 }
 ?>

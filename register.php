@@ -7,16 +7,13 @@ $err = array();
 					 
 if($_POST['doRegister'] == 'Register') 
 { 
-/**Filtering/Sanitizing Input 
-This code filters harmful script code and escapes data of all POST data
-from the user submitted form.
-*/
+
 foreach($_POST as $key => $value) {
 	$data[$key] = filter($value);
 }
 
 /** SERVER SIDE VALIDATION */
-/*This validation is useful if javascript is disabled in the browswer */
+/*This validation is useful if JavaScript is disabled in the browser */
 
 if(empty($data['full_name']) || strlen($data['full_name']) < 4)
 {
@@ -27,13 +24,13 @@ $err[] = "ERROR - Invalid name. Please enter atleast 3 or more characters for yo
 
 
 
-// Validate Email
+// Validate Email 
 if(!isEmail($data['usr_email'])) {
 $err[] = "ERROR - Invalid email address.";
 //header("Location: register.php?msg=$err");
 //exit();
 }
-// Check User Passwords
+// Check User Passwords if it matches
 if (!checkPwd($data['pwd'],$data['pwd2'])) {
 $err[] = "ERROR - Invalid Password or mismatch. Enter 5 chars or more";
 //header("Location: register.php?msg=$err");
@@ -41,7 +38,7 @@ $err[] = "ERROR - Invalid Password or mismatch. Enter 5 chars or more";
 }
 
 
-// stores sha1 of password
+// stores sha1 format of password
 $sha1pass = PwdHash($data['pwd']);
 
 
