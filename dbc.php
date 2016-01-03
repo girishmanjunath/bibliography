@@ -10,10 +10,10 @@ error_reporting( 0 );
 Note: If you use cpanel, the name will be like account_database
 *************************************************************/
 
-define ("DB_HOST", "localhost"); // set database host
-define ("DB_USER", "root"); // set database user
-define ("DB_PASS","madankur"); // set database password
-define ("DB_NAME","bibliography-girish"); // set database name
+define ("DB_HOST", "us-cdbr-azure-west-c.cloudapp.net"); // set database host
+define ("DB_USER", "bc4a22ca3859ef"); // set database user
+define ("DB_PASS","eccb17ee"); // set database password
+define ("DB_NAME","acsm_aea6bacab97d26e"); // set database name
 
 $link = mysql_connect(DB_HOST, DB_USER, DB_PASS) or die("Couldn't make connection.");
 $db = mysql_select_db(DB_NAME, $link) or die("Couldn't select database");
